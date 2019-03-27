@@ -7,6 +7,7 @@ import org.jetbrains.spek.api.dsl.it
 import org.openqa.selenium.By
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.interactions.Actions
 
 /**
  * @author Júlio Moreira Blás de Barros (julio.barros@movile.com)
@@ -48,6 +49,8 @@ abstract class BojackAuthenticationTest(driver: WebDriver): Spek({
             it("Shows user that the username is required after not filling it") {
                 repeat(20) { usernameField.sendKeys(Keys.BACK_SPACE) }
                 passwordField.sendKeys("aaa")
+
+                // val actions = Actions(driver).moveToElement(usernameField).clickAndHold().dragAndDrop()
 
                 val message = try {
                     driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div/form/div[1]/div/div[2]"))
