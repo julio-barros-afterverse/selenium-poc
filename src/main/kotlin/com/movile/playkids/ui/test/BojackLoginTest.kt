@@ -11,13 +11,11 @@ import kotlin.concurrent.thread
  * @author Júlio Moreira Blás de Barros (julio.barros@movile.com)
  * @since 3/26/19
  */
-class BojackLoginTest(val driver: WebDriver) {
-}
-
 fun main(args: Array<String>) {
     System.setProperty("webdriver.chrome.driver", "/Users/julio.barros/Downloads/chromedriver")
+
     val driver = ChromeDriver()
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
     driver.manage().window().maximize()
     driver.get("https://cms.pkds.it")
 
